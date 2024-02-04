@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    background-color: #ecf8fa; /* Background color other than white */
+    color: #333; /* Foreground color other than black */
+    margin: 20px;
+}
+
+h1 {
+    font-family: Bakso Sapi;
+    font-size: 24pt; /* Larger font size for H1 */
+    color: #e291c0; /* Blue color for H1 */
+}
+
+h2 {
+    font-family: Nugo Sans;
+    font-size: 20pt; /* Slightly smaller font size for H2 */
+    color: #555; /* Dark gray color for H2 */
+}
+
+p {
+    font-size: 12pt; /* Font size for paragraphs */
+    color: #666; /* Color for paragraphs */
+    line-height: 1.5;
+}
+
+a {
+    color: #009688;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:visited {
+    color: #660066; /* Purple for visited links */
+}
+
+a:hover {
+    color: #ff3300; /* Red for hover effect */
+}
+
+a:active {
+    color: #003366; /* Dark blue for active state */
+}
+
+/* CSS Table Layout */
+.main-container {
+    display: table;
+    width: 100%;
+}
+.text {
+    display: table-row;
+}
+
+.text h2, .text p {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
+.links {
+    display: table-row;
+}
+
+.links h2, .links p {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
