@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important Question!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      max-width: 450px;
+      width: 100%;
+    }
+    h1 {
+      color: #333;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+      min-height: 80px;
+    }
+    button {
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+      z-index: 10;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+    .gif-container img {
+      width: 150px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
 
+  <div class="card" id="mainCard">
+    <div class="gif-container">
+      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZydHZreDFreHBrbWFqNnl5MWhldTRqZXFvaDBhZTh3eTF4czZmeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cLS1CFxvGOPVpf9g3y/giphy.gif" alt="Cute gif">
+    </div>
+    
+    <!-- CHANGE YOUR INITIAL QUESTION HERE -->
+    <h1 id="questionText">Do you want to get food with me today?</h1>
+
+    <div class="btn-container">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const mainCard = document.getElementById('mainCard');
+    
+    let scaleFactor = 1;
+
+    // List of silly responses when clicking "No"
+    const noResponses = [
+      "Are you sure?",
+      "Really sure??",
+      "Think again!",
+      "Last chance!",
+      "Surely not?",
+      "You're breaking my heart!",
+      "Don't do this!",
+      "Just click Yes!"
+    ];
+    let responseIndex = 0;
+
+    noBtn.addEventListener('click', () => {
+      // 1. Make YES button bigger
+      scaleFactor += 0.45;
+      yesBtn.style.transform = `scale(${scaleFactor})`;
+      
+      // 2. Change NO button text
+      noBtn.innerText = noResponses[responseIndex % noResponses.length];
+      responseIndex++;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      // Change card content to celebration state
+      mainCard.innerHTML = `
+        <div class="gif-container">
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5bnp6eDNtN3JqdnJ4dWRrdm8ybTJndW4zazRieGVyODRxcTB1MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26u4cqiYI30juCOGY/giphy.gif" alt="Celebration gif">
+        </div>
+        <h1 style="color: #e91e63; font-size: 2.2rem;">Good choice! 😉🎉</h1>
+      `;
+    });
+  </script>
+</body>
+</html>
